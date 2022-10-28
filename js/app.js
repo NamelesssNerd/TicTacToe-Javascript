@@ -1,219 +1,56 @@
-const TicTacToe = document.getElementById('TicTacToe');
-const First = document.getElementById('First');
-const Second = document.getElementById('Second');
-const Third = document.getElementById('Third');
-const Fourth = document.getElementById('Fourth');
-const Fifth = document.getElementById('Fifth');
-const Sixth = document.getElementById('Sixth');
-const Seventh = document.getElementById('Seventh');
-const Eighth = document.getElementById('Eighth');
-const Ninenth = document.getElementById('Ninenth');
+let tikTaktoeTable = ['', '', '', '', '', '', '', '', '', '']
+const checkGameOverValue = [
+    [0, 1, 2], [0, 4, 8,], [0, 3, 6], [1, 4, 7], [2, 4, 6,], [2, 5, 8], [3, 4, 5], [6, 7, 8]
+];
+const turnX = 'X';
+const turnO = 'O';
+let xTurn = true;
 
-
-let Counter = 1;
-
-First.addEventListener('click', () => {
-    if (Counter % 2 != 0) {
-        FunctionFirst();
-    } else {
-        CircleFirst();
+const Child = document.querySelectorAll('.Child');
+function placeAllValue() {
+    for (var i = 0; i < tikTaktoeTable.length - 1; i++) {
+        Child[i].textContent = tikTaktoeTable[i];
     }
-    Counter++;
-});
-Second.addEventListener('click', () => {
-    if (Counter % 2 != 0) {
-        FunctionSecond();
-    } else {
-        CircleSecond();
-    }
-    Counter++;
-});
-Third.addEventListener('click', () => {
-    if (Counter % 2 != 0) {
-        FunctionThird();
-    } else {
-        CircleThird();
-    }
-    Counter++;
-});
-Fourth.addEventListener('click', () => {
-    if (Counter % 2 != 0) {
-        FunctionFourth();
-    } else {
-        CircleFourth();
-    }
-    Counter++;
-});
-Fifth.addEventListener('click', () => {
-    if (Counter % 2 != 0) {
-        FunctionFifth();
-    } else {
-        CircleFifth();
-    }
-    Counter++;
-});
-Sixth.addEventListener('click', () => {
-    if (Counter % 2 != 0) {
-        FunctionSixth();
-    } else {
-        CircleSixth();
-    }
-    Counter++;
-});
-Seventh.addEventListener('click', () => {
-    if (Counter % 2 != 0) {
-        FunctionSeventh();
-    } else {
-        CircleSeventh();
-    }
-    Counter++;
-});
-Eighth.addEventListener('click', () => {
-    if (Counter % 2 != 0) {
-        FunctionEighth();
-    } else {
-        CircleEighth();
-    }
-    Counter++;
-});
-Ninenth.addEventListener('click', () => {
-    if (Counter % 2 != 0) {
-        FunctionNinth();
-    } else {
-        CircleNinth();
-    }
-    Counter++;
+}
+placeAllValue();
+Child.forEach((Currenelem, Index) => {
+    Currenelem.addEventListener('click', () => {
+        xTurn ? TurnX(Index) : TurnO(Index);
+    })
 });
 
-function FunctionFirst() {
-    const LineOne = document.createElement('div');
-    LineOne.classList.add('LineOne');
-    const LineTwo = document.createElement('div');
-    LineTwo.classList.add("LineTwo")
-    First.appendChild(LineOne);
-    First.appendChild(LineTwo);
+function TurnX(Value) {
+    if (tikTaktoeTable[Value] == '') {
+        tikTaktoeTable[Value] = turnX;
+        xTurn = false;
+        placeAllValue();
+        setTimeout(() => {
+            checkGameOver(tikTaktoeTable[Value]);
+        }, 500);
+    } else {
+        alert('Already Clicked');
+    }
 }
-function CircleFirst(circle) {
-    const Circle = document.createElement('div');
-    Circle.classList.add('Circle');
-    First.append(Circle);
+function TurnO(Value) {
+    if (tikTaktoeTable[Value] == '') {
+        tikTaktoeTable[Value] = turnO;
+        xTurn = true;
+        placeAllValue();
+        setTimeout(() => {
+            checkGameOver(tikTaktoeTable[Value]);
+        }, 10);
+    } else {
+        alert('Already Clicked');
+    }
 }
-
-
-function FunctionSecond() {
-    const LineOne = document.createElement('div');
-    LineOne.classList.add('LineOne');
-    const LineTwo = document.createElement('div');
-    LineTwo.classList.add("LineTwo")
-    Second.appendChild(LineOne);
-    Second.appendChild(LineTwo);
-}
-function CircleSecond(circle) {
-    const Circle = document.createElement('div');
-    Circle.classList.add('Circle');
-    Second.append(Circle);
-}
-
-
-function FunctionThird() {
-    const LineOne = document.createElement('div');
-    LineOne.classList.add('LineOne');
-    const LineTwo = document.createElement('div');
-    LineTwo.classList.add("LineTwo")
-    Third.appendChild(LineOne);
-    Third.appendChild(LineTwo);
-}
-function CircleThird(circle) {
-    const Circle = document.createElement('div');
-    Circle.classList.add('Circle');
-    Third.append(Circle);
-}
-
-
-function FunctionFourth() {
-    const LineOne = document.createElement('div');
-    LineOne.classList.add('LineOne');
-    const LineTwo = document.createElement('div');
-    LineTwo.classList.add("LineTwo")
-    Fourth.appendChild(LineOne);
-    Fourth.appendChild(LineTwo);
-}
-function CircleFourth(circle) {
-    const Circle = document.createElement('div');
-    Circle.classList.add('Circle');
-    Fourth.append(Circle);
-}
-
-
-function FunctionFifth() {
-    const LineOne = document.createElement('div');
-    LineOne.classList.add('LineOne');
-    const LineTwo = document.createElement('div');
-    LineTwo.classList.add("LineTwo")
-    Fifth.appendChild(LineOne);
-    Fifth.appendChild(LineTwo);
-}
-function CircleFifth(circle) {
-    const Circle = document.createElement('div');
-    Circle.classList.add('Circle');
-    Fifth.append(Circle);
-}
-
-
-function FunctionSixth() {
-    const LineOne = document.createElement('div');
-    LineOne.classList.add('LineOne');
-    const LineTwo = document.createElement('div');
-    LineTwo.classList.add("LineTwo")
-    Sixth.appendChild(LineOne);
-    Sixth.appendChild(LineTwo);
-}
-function CircleSixth(circle) {
-    const Circle = document.createElement('div');
-    Circle.classList.add('Circle');
-    Sixth.append(Circle);
-}
-
-
-function FunctionSeventh() {
-    const LineOne = document.createElement('div');
-    LineOne.classList.add('LineOne');
-    const LineTwo = document.createElement('div');
-    LineTwo.classList.add("LineTwo")
-    Seventh.appendChild(LineOne);
-    Seventh.appendChild(LineTwo);
-}
-function CircleSeventh(circle) {
-    const Circle = document.createElement('div');
-    Circle.classList.add('Circle');
-    Seventh.append(Circle);
-}
-
-
-function FunctionEighth() {
-    const LineOne = document.createElement('div');
-    LineOne.classList.add('LineOne');
-    const LineTwo = document.createElement('div');
-    LineTwo.classList.add("LineTwo")
-    Eighth.appendChild(LineOne);
-    Eighth.appendChild(LineTwo);
-}
-function CircleEighth(circle) {
-    const Circle = document.createElement('div');
-    Circle.classList.add('Circle');
-    Eighth.append(Circle);
-}
-
-function FunctionNinth() {
-    const LineOne = document.createElement('div');
-    LineOne.classList.add('LineOne');
-    const LineTwo = document.createElement('div');
-    LineTwo.classList.add("LineTwo")
-    Ninenth.appendChild(LineOne);
-    Ninenth.appendChild(LineTwo);
-}
-function CircleNinth(circle) {
-    const Circle = document.createElement('div');
-    Circle.classList.add('Circle');
-    Ninenth.append(Circle);
+function checkGameOver(gameValue) {
+    for (var j = 0; j < checkGameOverValue.length - 1; j++) {
+        for (var k = 0; k <= checkGameOverValue[0].length - 3; k++) {
+            if ((tikTaktoeTable[checkGameOverValue[j][k]] == tikTaktoeTable[checkGameOverValue[j][k + 1]]) && (tikTaktoeTable[checkGameOverValue[j][k]] == tikTaktoeTable[checkGameOverValue[j][k + 2]])) {
+                if ((tikTaktoeTable[checkGameOverValue[j][k]] != '') && (tikTaktoeTable[checkGameOverValue[j][k + 1]] != '') && (tikTaktoeTable[checkGameOverValue[j][k + 2]] !== '')) {
+                    alert(`Winner Player is ${gameValue}`);
+                }
+            }
+        }
+    }
 }
