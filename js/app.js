@@ -5,7 +5,6 @@ const checkGameOverValue = [
 const turnX = 'X';
 const turnO = 'O';
 let xTurn = true;
-
 let Welcome = new Audio('../sound/Welcome.mp3');
 Welcome.volume = .5;
 let Click = new Audio('../sound/wrong.wav');
@@ -17,8 +16,6 @@ let tile = document.getElementById('tile');
 let start = document.getElementById('start');
 let restart = document.getElementById('restart');
 let TicTacToe = document.getElementById('TicTacToe');
-
-
 start.addEventListener('click', () => {
     Welcome.play();
     coverGame.classList.add(Slide);
@@ -28,7 +25,6 @@ start.addEventListener('click', () => {
 restart.addEventListener('click', () => {
 window.location.reload();
 });
-
 for (var DivVal = 0; DivVal <= 8; DivVal++) {
     const Child = `<h1 class="Child"></h1>`;
     TicTacToe.insertAdjacentHTML('beforeend', Child);
