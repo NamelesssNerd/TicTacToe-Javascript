@@ -11,6 +11,7 @@ Welcome.volume = .5;
 let Click = new Audio('../sound/wrong.wav');
 let Congratulation = new Audio('../sound/Congratulation.mp3');
 const Slide = 'Slide';
+const SlideRight = 'SlideRight';
 let coverGame = document.getElementById('coverGame');
 let tile = document.getElementById('tile');
 let start = document.getElementById('start');
@@ -79,7 +80,6 @@ function checkGameOver(gameValue) {
                     tile.textContent = `Winner is ${gameValue}`;
                     coverGame.classList.remove(Slide);
                     coverGame.classList.add(SlideRight);
-                    alert(`Winner Player is ${gameValue}`);
                 }
             }
         }
